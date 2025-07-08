@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, FlatList, StyleSheet, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import Animated, { FadeInRight, FadeOut } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTodos } from '../hooks/useTodos';
 import TodoItem from '../components/TodoItem';
@@ -28,16 +29,21 @@ export default function TodoScreen() {
               }}
             />
           )}
-          <FlatList
+          <Animated.FlatList
             data={todos}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <TodoItem
-                todo={item}
-                onToggle={toggleTodo}
-                onEdit={editTodo}
-                onDelete={deleteTodo}
-              />
+              <Animated.View
+                entering={FadeInRight}
+                exiting={FadeOut}
+              >
+                <TodoItem
+                  todo={item}
+                  onToggle={toggleTodo}
+                  onEdit={editTodo}
+                  onDelete={deleteTodo}
+                />
+              </Animated.View>
             )}
             contentContainerStyle={{ paddingBottom: 120 }}
             showsVerticalScrollIndicator={false}
