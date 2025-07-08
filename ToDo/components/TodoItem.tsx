@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-nativ
 import { Todo } from '../hooks/useTodos';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/Colors';
+import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 
 interface TodoItemProps {
   todo: Todo;
@@ -14,6 +15,23 @@ interface TodoItemProps {
 export default function TodoItem({ todo, onToggle, onEdit, onDelete }: TodoItemProps) {
   const [editing, setEditing] = useState(false);
   const [text, setText] = useState(todo.title);
+  const scale = useSharedValue(1);
+
+  React.useEffect(() => {
+    if (todo.completed) {
+      scale.value = withSpring(1.15, { damping: 4 }, () => {
+        scale.value = withSpring(1);
+      });
+    } else {
+      scale.value = withSpring(0.9, { damping: 4 }, () => {
+        scale.value = withSpring(1);
+      });
+    }
+  }, [todo.completed]);
+
+  const animatedCheckbox = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
 
   const handleEdit = () => {
     if (editing && text.trim() !== '') {
@@ -25,12 +43,14 @@ export default function TodoItem({ todo, onToggle, onEdit, onDelete }: TodoItemP
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={[styles.checkbox, todo.completed && styles.checked]}
         onPress={() => onToggle(todo.id)}
+        activeOpacity={0.7}
       >
-        {todo.completed && (
-          <Ionicons name="checkmark" size={20} color="#fff" />
-        )}
+        <Animated.View style={[styles.checkbox, todo.completed && styles.checked, animatedCheckbox]}>
+          {todo.completed && (
+            <Ionicons name="checkmark" size={20} color="#fff" />
+          )}
+        </Animated.View>
       </TouchableOpacity>
       {editing ? (
         <TextInput
