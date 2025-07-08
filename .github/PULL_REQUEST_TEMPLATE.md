@@ -46,6 +46,7 @@
 ## 🎥 Demo Video
 
 Include a link to your screen recording here (e.g. Loom, MP4, or GIF):
+Demo Video: "https://drive.google.com/file/d/14fuV5hw-fRlzx8bjeUukIG9UAtGYR5Zk/view?usp=sharing"
 
 > Example:  
 > https://loom.com/share/your-demo-link
