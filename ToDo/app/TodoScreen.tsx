@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, FlatList, StyleSheet, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTodos } from '../hooks/useTodos';
 import TodoItem from '../components/TodoItem';
 import TodoInput from '../components/TodoInput';
@@ -17,7 +18,7 @@ export default function TodoScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
           <AppText style={styles.title}>tasked</AppText>
           {inputVisible && (
             <TodoInput
@@ -45,7 +46,7 @@ export default function TodoScreen() {
             icon={inputVisible ? 'close' : 'add'}
             onPress={() => setInputVisible(v => !v)}
           />
-        </View>
+        </SafeAreaView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
@@ -55,8 +56,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 48,
     paddingHorizontal: 24,
+    paddingTop: 16, // add extra top padding
   },
   title: {
     fontSize: 36,
