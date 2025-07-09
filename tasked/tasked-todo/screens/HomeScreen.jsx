@@ -37,12 +37,14 @@ export default function HomeScreen() {
         data={todos}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
+       
           <TodoItem
-            todo={item}
-            onToggle={() => dispatch(toggleTodo(item.id))}
-            onDelete={() => dispatch(deleteTodo(item.id))}
-            onEdit={(newTitle) => dispatch(editTodo({ id: item.id, title: newTitle }))}
-          />
+  item={item} //  this matches TodoItem's prop
+  onToggle={() => dispatch(toggleTodo(item.id))}
+  onDelete={() => dispatch(deleteTodo(item.id))}
+  onEdit={(newTitle) => dispatch(editTodo({ id: item.id, title: newTitle }))}
+/>
+
         )}
       />
     </View>
