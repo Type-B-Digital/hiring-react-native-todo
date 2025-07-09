@@ -1,5 +1,6 @@
 
 🚀 Description
+
 This pull request implements the core functionality and UI for the Tasked app, aligned closely with the provided Figma design.
 
 **Key Features:**
@@ -12,6 +13,7 @@ This pull request implements the core functionality and UI for the Tasked app, a
 - Updated touch targets and icon usage for improved usability
 
 💡 Solution Rationale & User Value
+
 The implementation prioritizes:
 - Visual accuracy with the design: spacing, colors, and UI structure were refined to closely match the Figma layout
 - Readability & maintainability: cleanly separated view and logic components; styles are modular and scalable
@@ -21,6 +23,7 @@ The implementation prioritizes:
 This approach ensures users experience a responsive and visually consistent interface, while also making it easier for developers to iterate on the codebase.
 
 💾 Local Persistence Rationale
+
 The app uses AsyncStorage for local persistence.
 
 **Reasoning:**
