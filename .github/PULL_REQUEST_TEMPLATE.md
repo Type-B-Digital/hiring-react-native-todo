@@ -53,12 +53,14 @@ These animations improve user clarity without adding external dependencies.
 
 🎥 Demo Video
 ✅ Included  
-https://loom.com/share/demo-video-link
+https://drive.google.com/file/d/1bGUIjDSZeJBEtZnayFcVjFOmqWVoxW1B/view?usp=drive_link
 
 🛠️ Setup Instructions
 No additional setup required beyond the default instructions:
 ```bash
+cd tasked
 npm install
+cd tasked-todo
 npx expo start
 ```
 Ensure your Redux store and AsyncStorage setup is completed as per the project documentation.
