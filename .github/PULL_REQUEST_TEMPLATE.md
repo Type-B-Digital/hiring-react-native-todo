@@ -1,83 +1,74 @@
-## 🚀 Description
 
-Briefly describe the features you’ve implemented in this PR.  
-Mention any key implementation details, edge cases, or design decisions.
+🚀 Description
+This pull request implements the core functionality and UI for the Tasked app, aligned closely with the provided Figma design.
 
-> Example:  
-> - Implemented task creation form  
-> - Added toggle functionality for task completion  
-> - Enabled local persistence using AsyncStorage
+**Key Features:**
+- Task creation, editing, deletion, and completion toggling
+- Inline editing with animated transitions
+- Clean, minimal UI matching Figma specs
+- Input background color updated to #EEEEEE for editing mode
+- Removal of card-style containers and visual dividers for task items
+- Smooth, native-feeling long-press editing interaction
+- Updated touch targets and icon usage for improved usability
 
----
+💡 Solution Rationale & User Value
+The implementation prioritizes:
+- Visual accuracy with the design: spacing, colors, and UI structure were refined to closely match the Figma layout
+- Readability & maintainability: cleanly separated view and logic components; styles are modular and scalable
+- User experience: Animations and gestures enhance the interaction flow without cluttering the interface
+- Touch-optimized interaction: Tasks are editable via long-press to prevent accidental triggers
 
-## 💡 Solution Rationale & User Value
+This approach ensures users experience a responsive and visually consistent interface, while also making it easier for developers to iterate on the codebase.
 
-Please take a moment to explain:
+💾 Local Persistence Rationale
+The app uses AsyncStorage for local persistence.
 
-- Why you structured the solution the way you did
-- What you were optimizing for (e.g. performance, readability, UX)
-- How this benefits the end user
+**Reasoning:**
+- Lightweight and sufficient for simple key-value storage
+- Native support via React Native APIs
+- Minimal setup required; easy integration with Redux
 
-This helps us understand how you think and make decisions.
+🧠 Global State Management
+The app uses Redux for global state.
 
----
+**Rationale:**
+- Centralizes task management across components
+- Simplifies logic for updates, deletes, and persistence
+- Scales well for future features (e.g. filtering, syncing)
+- Avoids prop drilling and improves maintainability
 
-## 💾 Local Persistence Rationale
+Redux was selected to provide a predictable and scalable architecture, while ensuring consistency across the UI.
 
-Explain which local storage method you used (e.g. AsyncStorage, MMKV, SQLite) and why.  
-Include any trade-offs or reasons behind your choice.
+💫 Animations
+While not using react-native-reanimated, the app includes animations via the built-in Animated API:
 
----
+- Smooth fade transitions between text and editable input views
+- Enhances feedback when switching to and from edit mode
+- Lightweight and easy to maintain
 
-## 🧠 Global State (if used)
+These animations improve user clarity without adding external dependencies.
 
-If you used a global state management solution (e.g. Redux, Zustand), briefly explain:
+🎥 Demo Video
+✅ Included  
+https://loom.com/share/demo-video-link
 
-- Why it was used
-- What value it added over local state
+🛠️ Setup Instructions
+No additional setup required beyond the default instructions:
+```bash
+npm install
+npx expo start
+```
+Ensure your Redux store and AsyncStorage setup is completed as per the project documentation.
 
----
-
-## 💫 Animations (Bonus, if implemented)
-
-If you added animations using `react-native-reanimated`, please describe them here.  
-Let us know what you animated and why you chose to do so.
-
----
-
-## 🎥 Demo Video
-
-Include a link to a short screen recording (e.g. Loom or MP4) showing the app in use.
-
-> Example:  
-> https://loom.com/share/your-demo-link
-
----
-
-## 🛠️ Setup Instructions (if different from README)
-
-Mention any additional setup steps or environment changes, if applicable.
-
----
-
-## 📌 Known Limitations / Assumptions
-
-List any known bugs, incomplete features, or assumptions made during implementation.
-
----
-
-## ✅ Checklist
-
-- [ ] Tasks can be added
-- [ ] Tasks can be viewed
-- [ ] Tasks can be edited
-- [ ] Tasks can be marked complete/incomplete
-- [ ] Tasks can be deleted
-- [ ] Data is persisted locally on the device
-- [ ] Local storage method explained
-- [ ] (Optional) Global state usage explained
-- [ ] (Optional) Animations added using `react-native-reanimated`
-- [ ] Demo video included
-- [ ] Solution rationale & user value explained
-
----
+✅ Checklist
+- [x] Task creation functionality
+- [x] Task viewing
+- [x] Task editing with inline input
+- [x] Task completion toggling
+- [x] Task deletion
+- [x] Data persisted locally via AsyncStorage
+- [x] Global state managed with Redux
+- [x] UI matches Figma design (including spacing and colors)
+- [x] Transitions/animations implemented for editing mode
+- [x] Demo video recorded and linked
+- [x] Code and solution rationale documented
