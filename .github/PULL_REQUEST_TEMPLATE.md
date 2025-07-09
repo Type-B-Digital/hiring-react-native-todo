@@ -59,8 +59,8 @@ https://drive.google.com/file/d/1bGUIjDSZeJBEtZnayFcVjFOmqWVoxW1B/view?usp=drive
 No additional setup required beyond the default instructions:
 ```bash
 cd tasked
-npm install
 cd tasked-todo
+npm install
 npx expo start
 ```
 Ensure your Redux store and AsyncStorage setup is completed as per the project documentation.
