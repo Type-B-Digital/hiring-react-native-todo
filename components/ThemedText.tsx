@@ -1,6 +1,9 @@
 import { StyleSheet, Text, type TextProps } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
+import { useFonts } from 'expo-font';
+
+
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -16,7 +19,14 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+ const [loaded] = useFonts({
+    TTF: require('../assets/fonts/TT Firs Neue Trial Black.ttf'),
+  });
 
+  if (!loaded) {
+    // Async font loading only occurs in development.
+    return null;
+  }
   return (
     <Text
       style={[
@@ -45,8 +55,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     lineHeight: 32,
+    fontFamily: 'TTF',
   },
   subtitle: {
     fontSize: 20,
