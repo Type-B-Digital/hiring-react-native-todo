@@ -1,12 +1,10 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { HelloWave } from '@/components/HelloWave';
+import { StyleSheet, View } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import FABbutton from '@/components/FABbutton';
-import { Checkbox } from 'react-native-paper'; // Or your preferred checkbox component
 import React, { useState } from 'react';
+import CustomCheckbox from '@/components/CustomCheckBox'; // Assuming you have a custom checkbox component
 
 export default function HomeScreen() {
   const [tasks, setTasks] = useState([
@@ -28,7 +26,7 @@ export default function HomeScreen() {
     { id: '16', title: 'create', completed: false },
   ]);
 
-  const toggleTask = (id) => {
+  const toggleTask = (id: string) => {
     setTasks(tasks.map(task => 
       task.id === id ? { ...task, completed: !task.completed } : task
     ));
@@ -37,29 +35,24 @@ export default function HomeScreen() {
   return (
     <>
       <ParallaxScrollView
-        headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-        headerImage={
-          <Image
-            source={require('@/assets/images/partial-react-logo.png')}
-            style={styles.reactLogo}
-          />
-        }
+        headerBackgroundColor={{ light: '#51acb4', dark: '#51acb4' }}
         title='tasked'
       >
         <ThemedView style={styles.tasksContainer}>
           {tasks.map((task) => (
             <ThemedView key={task.id} style={styles.taskItem}>
-              <Checkbox
-                status={task.completed ? 'checked' : 'unchecked'}
+           
+              <CustomCheckbox
+                isChecked={task.completed}
                 onPress={() => toggleTask(task.id)}
-                color="#51acb4"
-                
+                boxBackgroundColor={{ light: '#11181C', dark: '#9BA1A6' }} // Optional background color
               />
               <ThemedText 
                 style={[
-                  styles.taskText,
+                  // styles.taskText,
                   task.completed && styles.completedTask
                 ]}
+                type='defaultSemiBold'
               >
                 {task.title}
               </ThemedText>
@@ -76,39 +69,17 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   tasksContainer: {
-    // marginTop: 20,
-    // paddingHorizontal: 16,
+    gap: 8,
   },
   taskItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 7,
-    // borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-  },
-  taskText: {
-    fontSize: 16,
-    marginLeft: 12,
-    flex: 1,
+    paddingVertical: 10,
   },
   completedTask: {
     textDecorationLine: 'line-through',
     color: '#888',
   },
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
+
+ 
 });

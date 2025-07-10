@@ -21,6 +21,7 @@ export function ThemedText({
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
  const [loaded] = useFonts({
     TTF: require('../assets/fonts/TT Firs Neue Trial Black.ttf'),
+    Dan: require('../assets/fonts/DMSans-Regular.ttf'),
   });
 
   if (!loaded) {
@@ -49,9 +50,12 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   defaultSemiBold: {
-    fontSize: 16,
+    fontSize: 18,
     lineHeight: 24,
-    fontWeight: '600',
+    marginLeft: 17,
+    fontFamily: 'Dan',
+    // flex: 1,
+    // fontWeight: '600',
   },
   title: {
     fontSize: 32,

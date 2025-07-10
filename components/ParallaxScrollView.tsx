@@ -15,7 +15,7 @@ import { ThemedText } from './ThemedText';
 const HEADER_HEIGHT = 100;
 
 type Props = PropsWithChildren<{
-  headerImage: ReactElement;
+  headerImage?: ReactElement;
   title?: string;
   headerBackgroundColor: { dark: string; light: string };
 }>;
@@ -70,7 +70,7 @@ export default function ParallaxScrollView({
               right: 0,
               height: HEADER_HEIGHT,
               justifyContent: 'flex-end',
-              backgroundColor:'green'
+              backgroundColor: headerBackgroundColor[colorScheme],
             }}>
             <ThemedView
               style={{
@@ -79,7 +79,7 @@ export default function ParallaxScrollView({
                 paddingVertical: 8,
                 // borderRadius: 8,
               }}>
-              <ThemedText type="title">{title}</ThemedText>
+              <ThemedText type="title" >{title}</ThemedText>
             </ThemedView>
           </ThemedView>
         </Animated.View>
