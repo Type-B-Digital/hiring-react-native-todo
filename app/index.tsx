@@ -9,8 +9,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { addTask, deleteTask, getAllTasks, saveAllTasks, updateTask } from '@/store/Storage'; // Assuming you have storage utilities
 import React, { useEffect, useRef, useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
-import { Swipeable } from 'react-native-gesture-handler';
-import { IconButton, MD3Colors } from 'react-native-paper';
+
 
 type Task = {
   id: string;
