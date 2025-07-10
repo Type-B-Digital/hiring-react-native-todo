@@ -2,28 +2,32 @@ import React, { useState } from 'react';
 import { StyleSheet, Animated } from 'react-native';
 import { FAB } from 'react-native-paper';
 
-const ToggleFAB = () => {
-    const [isOpen, setIsOpen] = useState(false);
+type ToggleFABProps = {
+    onPress: () => void;
+    isInputVisible: boolean;
+};
+
+const ToggleFAB = ({ onPress, isInputVisible }: ToggleFABProps) => {
     const rotation = useState(new Animated.Value(0))[0];
 
     const toggleFAB = () => {
         Animated.timing(rotation, {
-            toValue: isOpen ? 0 : 1,
+            toValue: isInputVisible ? 0 : 1,
             duration: 200,
             useNativeDriver: true,
         }).start();
-        setIsOpen(!isOpen);
+        onPress();
     };
 
     const rotateInterpolation = rotation.interpolate({
         inputRange: [0, 1],
-        outputRange: ['0deg', '180deg'],
+        outputRange: ['0deg', '90deg'], // Changed to 135deg for more natural close icon
     });
 
     return (
         <Animated.View style={{ transform: [{ rotate: rotateInterpolation }] }}>
             <FAB
-                icon={isOpen ? 'close' : 'plus'}
+                icon={isInputVisible ? 'close' : 'plus'}
                 color='white'
                 style={styles.fab}
                 onPress={toggleFAB}
@@ -33,12 +37,8 @@ const ToggleFAB = () => {
 };
 
 const styles = StyleSheet.create({
-   
     fab: {
-        // position: 'absolute',
         margin: 16,
-        right: 0,
-        bottom: 0,
         backgroundColor: '#51acb4',
         borderRadius: 28,
     },

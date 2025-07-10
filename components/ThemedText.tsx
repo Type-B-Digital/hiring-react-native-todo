@@ -54,14 +54,12 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     marginLeft: 17,
     fontFamily: 'Dan',
-    // flex: 1,
-    // fontWeight: '600',
   },
   title: {
     fontSize: 32,
-    // fontWeight: 'bold',
     lineHeight: 32,
     fontFamily: 'TTF',
+    marginLeft:5,
   },
   subtitle: {
     fontSize: 20,
