@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # tasked - React Native TODO App
 
 A simple TODO list app built with React Native.
