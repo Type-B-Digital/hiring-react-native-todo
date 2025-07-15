@@ -87,19 +87,21 @@ Please consider these as mere examples. You have the complete creative freedom t
    - Rationale for chosen local storage method
    - (If used) Rationale for global state management
    - A short demo video or GIF of the app in use
+6. Fill [this form](https://forms.gle/4USChaac1x3qWFd76) to officially submit your work
 
-> ⚠️ Submissions without a completed PR template or demo video may not be considered.
+> ⚠️ Submissions may not be considered if the instructions are not followed correctly
 
 ---
 
 ## ⏳ Time Expectation
 
-We expect this task to take around **2–4 hours**. Please don’t over-optimize — the goal is to assess your ability to build and ship clean, functional React Native UIs with basic persistence.
+We expect this task to take around **4–6 hours**. Please don’t over-optimize — the goal is to assess your ability to build and ship clean, functional React Native UIs with basic persistence.
 
 ---
 
 ## ✅ Evaluation Criteria
 
+- Instructions followed
 - Visual accuracy to the Figma design
 - Functional completeness of all features
 - Code structure and modularity
