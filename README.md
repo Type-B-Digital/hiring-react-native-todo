@@ -87,7 +87,7 @@ Please consider these as mere examples. You have the complete creative freedom t
    - Rationale for chosen local storage method
    - (If used) Rationale for global state management
    - A short demo video or GIF of the app in use
-6. Fill [this form](https://forms.gle/4USChaac1x3qWFd76) to officially submit your work
+6. Fill [this form](https://coda.io/form/Type-B-Digital-Take-Home-assessment-submission_dhoOxXXJp0V) to officially submit your work
 
 > ⚠️ Submissions may not be considered if the instructions are not followed correctly
 
