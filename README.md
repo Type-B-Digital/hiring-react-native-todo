@@ -88,6 +88,7 @@ Please consider these as mere examples. You have the complete creative freedom t
    - (If used) Rationale for global state management
    - A short demo video or GIF of the app in use
 6. Fill [this form](https://coda.io/form/Type-B-Digital-Take-Home-assessment-submission_dhoOxXXJp0V) to officially submit your work
+7. Do NOT send any direct emails with your submissions
 
 > ⚠️ Submissions may not be considered if the instructions are not followed correctly
 
